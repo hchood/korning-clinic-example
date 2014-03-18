@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration
       t.timestamps
     end
 
-    Sale.all.each do |sale|
+    Sale.find_each do |sale|
       # create a new Product object
       unless Product.exists?(name: sale.product_name)
         Product.create(name: sale.product_name)
